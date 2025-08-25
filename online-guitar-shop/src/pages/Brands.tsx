@@ -2,6 +2,7 @@
 import { useQuery } from "@apollo/client/react";
 import { GET_BRANDS } from "../queries";
 import { Link } from "react-router-dom";
+import "./Brands.css"; // import the CSS file
 
 export default function Brands() {
   const { data, loading, error } = useQuery(GET_BRANDS);
@@ -10,23 +11,19 @@ export default function Brands() {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="p-6">
-      <h1>Guitar Brands</h1>
-      <div
-        style={{
-          display: "grid",
-          gap: "1rem",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-        }}
-      >
+    <div className="brands-container">
+      <h1 className="brands-title">Guitar Brands</h1>
+
+      <div className="brands-grid">
         {(data as { findAllBrands: any[] }).findAllBrands.map((b: any) => (
-          <Link
-            key={b.id}
-            to={`/brands/${b.id}`}
-            style={{ border: "1px solid #ccc", padding: "1rem" }}
-          >
-            <img src={b.image} alt={b.name} style={{ width: "100%" }} />
-            <h3>{b.name}</h3>
+          <Link key={b.id} to={`/brands/${b.id}`} className="brand-card">
+            <div className="brand-image-container">
+              <img src={b.image} alt={b.name} />
+            </div>
+            <div className="brand-info">
+              <h3>{b.name}</h3>
+              {b.origin && <p>Origin: {b.origin}</p>}
+            </div>
           </Link>
         ))}
       </div>
