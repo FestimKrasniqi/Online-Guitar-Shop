@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Brands from "./pages/Brands";
 import Models from "./pages/Models";
-// import Details from "./pages/Details";
+import ModelDetails from "./pages/ModelDetails";
 
 export default function App() {
   return (
@@ -10,8 +10,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/brands" />} />
         <Route path="/brands" element={<Brands />} />
-        {  <Route path="/brands/:brandId" element={<Models />} /> }
-        {/* <Route path="/guitars/:guitarId" element={<Details />} /> */} 
+        <Route path="/brands/:brandId" element={<Models />} />
+        <Route path="/guitars/:guitarId" element={<ModelDetails />} />
       </Routes>
     </BrowserRouter>
   );

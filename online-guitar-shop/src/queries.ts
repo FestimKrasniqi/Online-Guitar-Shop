@@ -51,7 +51,7 @@ export const SEARCH_MODELS = gql`
 // ----------------------------------
 // 4️⃣ Get details of a specific guitar model
 // ----------------------------------
-export const GET_GUITAR_DETAILS = gql`
+export const GET_UNIQUE_MODEL = gql`
   query GetModelDetails($brandId: ID!, $modelId: ID!) {
     findUniqueModel(brandId: $brandId, modelId: $modelId) {
       id
