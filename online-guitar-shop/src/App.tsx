@@ -8,8 +8,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/brands" />} />
-        <Route path="/brands" element={<Brands />} />
+        <Route path="/" element={<Brands />} />
         <Route path="/brands/:brandId" element={<Models />} />
         <Route path="/guitars/:guitarId" element={<ModelDetails />} />
       </Routes>

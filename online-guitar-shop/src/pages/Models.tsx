@@ -1,4 +1,4 @@
-// src/pages/Models.tsx
+import Footer from "../components/footer";
 import { useState } from "react";
 import { useQuery } from "@apollo/client/react";
 import { GET_MODELS_BY_BRAND, SEARCH_MODELS } from "../queries";
@@ -9,12 +9,16 @@ import type {
   BrandModel,
 } from "../types";
 import "./Models.css";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 export default function Models() {
   const { brandId } = useParams<{ brandId: string }>();
   const [searchTerm, setSearchTerm] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
   const [page, setPage] = useState(1);
+  const { language } = useLanguage();
+  const t = translations[language];
 
   const pageSize = 6;
 
@@ -32,8 +36,13 @@ export default function Models() {
     skip: !searchTerm,
   });
 
-  if (loading) return <p>Loading…</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <p>{t.loading}</p>;
+  if (error)
+    return (
+      <p>
+        {t.error} {error.message}
+      </p>
+    );
 
   const models: BrandModel[] = searchTerm
     ? searchData?.searchModels ?? []
@@ -55,13 +64,16 @@ export default function Models() {
 
   return (
     <div className="models-container">
-      <h1 className="models-title">Guitar Models</h1>
+      <Link to={`/brands/${brandId}`} className="back-button">
+        &larr; {t.backToHome}
+      </Link>
+      <h1 className="models-title">{t.modelsTitle}</h1>
 
       {/* Filters */}
       <div className="models-filters">
         <input
           type="text"
-          placeholder="Search models..."
+          placeholder={t.searchPlaceholder}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="models-search"
@@ -72,7 +84,7 @@ export default function Models() {
           onChange={(e) => setTypeFilter(e.target.value)}
           className="models-select"
         >
-          <option value="">All Types</option>
+          <option value="">{t.allTypes}</option>
           {guitarTypes.map((type) => (
             <option key={type} value={type}>
               {type}
@@ -95,8 +107,12 @@ export default function Models() {
             </div>
             <div className="model-info">
               <h3>{model.name}</h3>
-              <p>Type: {model.type}</p>
-              <p>Price: ${model.price}</p>
+              <p>
+                {t.type}: {model.type}
+              </p>
+              <p>
+                {t.price}: ${model.price}
+              </p>
             </div>
           </Link>
         ))}
@@ -105,9 +121,12 @@ export default function Models() {
       {/* Load More Button */}
       {paginatedModels.length < filteredModels.length && (
         <button className="load-more" onClick={loadMore}>
-          Load More
+          {t.loadMore}
         </button>
       )}
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
