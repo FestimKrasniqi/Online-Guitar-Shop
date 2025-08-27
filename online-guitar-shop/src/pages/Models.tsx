@@ -64,7 +64,7 @@ export default function Models() {
 
   return (
     <div className="models-container">
-      <Link to={`/brands/${brandId}`} className="back-button">
+      <Link to={`/`} className="back-button">
         &larr; {t.backToHome}
       </Link>
       <h1 className="models-title">{t.modelsTitle}</h1>
