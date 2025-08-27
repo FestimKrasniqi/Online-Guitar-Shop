@@ -1,4 +1,4 @@
-// src/components/Footer.tsx
+
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations";
 import "./Footer.css";
@@ -10,20 +10,17 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Left: Logo and Description */}
         <div className="footer-left">
           <h2 className="logo">VibeStrings</h2>
           <p>{t.footerDescription}</p>
         </div>
 
-        {/* Center: Navigation */}
         <div className="footer-links">
           <a href="/">{t.brands}</a>
           <a href="#">{t.about}</a>
           <a href="#">{t.contact}</a>
         </div>
 
-        {/* Right: Social + Language */}
         <div className="footer-right">
           <div className="social-icons">
             <a href="#">
@@ -49,7 +46,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom */}
       <div className="footer-bottom">
         <p>© 2025 VibeStrings. All rights reserved.</p>
       </div>

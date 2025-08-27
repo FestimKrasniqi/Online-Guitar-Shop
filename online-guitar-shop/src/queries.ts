@@ -1,9 +1,7 @@
-// src/queries.ts
+
 import { gql } from "@apollo/client";
 
-// ----------------------------------
-// 1️⃣ Get all brands
-// ----------------------------------
+
 export const GET_BRANDS = gql`
   query GetBrands {
     findAllBrands {
@@ -16,9 +14,7 @@ export const GET_BRANDS = gql`
   }
 `;
 
-// ----------------------------------
-// 2️⃣ Get models for a specific brand with sorting
-// ----------------------------------
+
 export const GET_MODELS_BY_BRAND = gql`
   query GetBrandModels($id: ID!, $sortBy: sortBy!) {
     findBrandModels(id: $id, sortBy: $sortBy) {
@@ -32,9 +28,7 @@ export const GET_MODELS_BY_BRAND = gql`
   }
 `;
 
-// ----------------------------------
-// 3️⃣ Search models by name
-// ----------------------------------
+
 export const SEARCH_MODELS = gql`
   query SearchModels($brandId: String!, $name: String!) {
     searchModels(brandId: $brandId, name: $name) {
@@ -48,9 +42,7 @@ export const SEARCH_MODELS = gql`
   }
 `;
 
-// ----------------------------------
-// 4️⃣ Get details of a specific guitar model
-// ----------------------------------
+
 export const GET_UNIQUE_MODEL = gql`
   query GetModelDetails($brandId: ID!, $modelId: ID!) {
     findUniqueModel(brandId: $brandId, modelId: $modelId) {

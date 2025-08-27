@@ -1,4 +1,4 @@
-// src/context/LanguageContext.tsx
+
 import { createContext, useContext, useState, type ReactNode } from "react";
 
 type Language = "en" | "al";
