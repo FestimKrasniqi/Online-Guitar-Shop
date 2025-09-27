@@ -63,6 +63,7 @@ export default function Models() {
   );
 
   return (
+    <>
     <div className="models-container">
       <Link to={`/`} className="back-button">
         &larr; {t.backToHome}
@@ -125,8 +126,10 @@ export default function Models() {
         </button>
       )}
 
+  
       {/* Footer */}
-      <Footer />
-    </div>
+     </div>
+     <Footer />
+     </>
   );
 }

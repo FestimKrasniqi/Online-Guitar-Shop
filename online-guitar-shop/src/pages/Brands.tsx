@@ -27,6 +27,7 @@ export default function Brands() {
   const brands = data?.findAllBrands ?? [];
 
   return (
+    <>
     <div className="brands-container">
       <h1 className="brands-title">{t.brandsTitle}</h1>
 
@@ -51,8 +52,9 @@ export default function Brands() {
           </Link>
         ))}
       </div>
-
-      <Footer />
+      
     </div>
+    <Footer />
+    </>
   );
 }

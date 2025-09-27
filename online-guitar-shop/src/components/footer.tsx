@@ -40,7 +40,7 @@ export default function Footer() {
               onChange={(e) => setLanguage(e.target.value as "en" | "al")}
             >
               <option value="en">English</option>
-              <option value="al">Shqip</option>
+              <option value="al">Albanian</option>
             </select>
           </div>
         </div>
