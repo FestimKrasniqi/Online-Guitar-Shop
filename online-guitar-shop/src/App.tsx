@@ -1,5 +1,4 @@
-
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Brands from "./pages/Brands";
 import Models from "./pages/Models";
 import ModelDetails from "./pages/ModelDetails";

@@ -1,7 +1,7 @@
 
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations";
-import "./Footer.css";
+import "./footer.css";
 
 export default function Footer() {
   const { language, setLanguage } = useLanguage();
@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="language-switcher">
             <select
               value={language}
-              onChange={(e) => setLanguage(e.target.value)}
+              onChange={(e) => setLanguage(e.target.value as "en" | "al")}
             >
               <option value="en">English</option>
               <option value="al">Shqip</option>

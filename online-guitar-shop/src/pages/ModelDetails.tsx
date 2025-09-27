@@ -129,9 +129,4 @@ export default function ModelDetails() {
   );
 }
 
-// Helper to format spec labels nicely
-function formatSpecLabel(label: string): string {
-  return label
-    .replace(/([A-Z])/g, " $1") // split camelCase
-    .replace(/^./, (str) => str.toUpperCase()); // capitalize
-}
+
